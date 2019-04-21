@@ -138,7 +138,7 @@ function check_product()
         return
     fi
     if (echo -n $1 | grep -q -e "^lineage_") ; then
-        LINEAGE_BUILD=$(echo -n $1 | sed -e 's/^lineage_//g')
+        LINEAGE_BUILD=$(echo -n $1 | sed -e 's/^lazy_//g')
         export BUILD_NUMBER=$( (date +%s%N ; echo $LINEAGE_BUILD; hostname) | openssl sha1 | sed -e 's/.*=//g; s/ //g' | cut -c1-10 )
     else
         LINEAGE_BUILD=
